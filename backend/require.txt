@@ -1,0 +1,36 @@
+Test Assignment:
+
+1. Palindrome
+a. Implement a function for checking the string whether if it's Palindrome or not.
+b. Write unittest for this function.
+
+
+--------------------------------
+
+
+2. Rotate a matrix.
+a. Writing a function that can rotate a matrix to left with 90 degree.
+b. Write unittest for this function.
+
+
+---------------------------------
+
+
+3. Building a webapp for rentail room in the Building
+3.1 Each Building has a lot of floors and each floor has many room for rent.
+3.2 Each Building has these features:
+    + Images
+    + Description
+    + Location 
+    + Build year
+    + Equiments
+    + Floors Number
+3.3 The Room fee including: rentail fee and management fee. It base on Room acreage.
+
+
+Imagine that is the request of client, and you need to building a webapp for rental it.
+Solving some problems:
+a. Design the Database for this App.
+b. Using Ruby On Rails, Building a sample website for Client depend on the request.
+Referrence: https://www.m-standard.co.jp/
+c. Suggest 3 points for client to make the website better.

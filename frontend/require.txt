@@ -1,0 +1,5 @@
+Requirement:
+- Building HTML + CSS and responsive for all devices
+- Can use any frameworks
+
+Note: Can use English instead of Japanese Language in all pages
