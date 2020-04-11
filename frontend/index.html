@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://semantic-ui.com/examples/homepage.html -->
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Standard Meta -->
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- Site Properties -->
+  <title>Neolab - My Profile</title>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+  <script src="./js/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script src="./js/custom.js"></script>
+</head>
+<body class="pushable" cz-shortcut-listen="true">
+  <!-- Sidebar menu -->
+  <div class="ui vertical inverted sidebar menu right">
+    <a class="item">My page</a>
+    <a class="item">Messages</a>
+    <a class="active item">My profile</a>
+    <a class="item">Setting</a>
+    <a class="item">Login</a>
+    <a class="item">Signup</a>
+  </div>
+
+  <!-- Page Contents -->
+  <div class="pusher">
+    <div class="ui inverted vertical masthead center aligned segment">
+      <div class="ui container">        
+        <div class="ui large secondary inverted pointing menu" >
+          <a href="index.html"><img src="./image/logo.png" class="ui small image" style="padding-top: 1.5rem;"></a>
+          <div class="right item">
+            <a class="ui large basic label info-label" style="background-color: transparent; pointer-events: none;">
+              <i class="user icon"></i>
+              Tom Cruise
+            </a>
+            <a class="ui inverted button btn-signout">Sign Out</a>
+            <a class="toc item">
+              <i class="sidebar icon"></i>
+            </a>
+          </div>
+        </div>
+        <div class="ui large secondary inverted pointing menu" id="menu-responsive">          
+          <a href="index.html" class="item">My page</a>
+          <a href="index.html" class="item">Messages</a>
+          <a href="index.html" class="active item">My profile</a>
+          <a href="index.html" class="item">Settings</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui vertical stripe segment">
+      <div class="ui middle aligned stackable grid container">
+        <div class="row"></div>
+        <div class="row">
+          <div class="four wide top attached column" style="position: relative;">
+            <img class="ui medium circular image" id="avatar" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1134289126.jpg?crop=0.6677678150070788xw:1xh;center,top&resize=480:*" >
+            <div class="btn-upload">
+              <button class="circular ui icon big primary button upload-button">
+                <i class="icon camera"></i>
+              </button>
+              <input class="imgUpload" type="file" accept="image/*"/>
+            </div>
+            <a href="index.html" class="ui big basic label" style="background-color: transparent; pointer-events: none; border: none;">About</a>
+          </div>
+          <div class="ten wide right floated column">
+            <div class="ui grid">
+              <div class="ten wide column">
+                <h3 class="ui header section-header">Basic Information</h3>
+              </div>
+              <div class="four wide right floated column">
+                <a href="index.html" class="ui large basic label" style="padding-top: 1.5rem; border: none">
+                  <i class="icon pencil alternate"></i>
+                  Edit
+                </a>
+              </div>
+            </div>
+            <hr>
+            <table class="ui very basic table">
+              <tbody>
+                <tr>
+                  <td width="20%">
+                    <p>Email</p>
+                  </td>
+                  <td class="ui small header">
+                    mail@example.com
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Password</p>
+                  </td>
+                  <td style="-webkit-text-security: disc;">
+                    <p width="20px">mail@example.com</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Gender</p>
+                  </td>
+                  <td class="ui small header">
+                    Male
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Birthday</p>
+                  </td>
+                  <td class="ui small header">
+                    <time datetime="1990/01/11">1990 / 01 / 11</time>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Address</p>
+                  </td>
+                  <td class="ui small header">
+                    00-00 ABCDEFGH XXXX 0-00-0
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Phone number</p>
+                  </td>
+                  <td class="ui small header">
+                    000-0000-0000
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            
+          </div>          
+        </div>
+        <div class="row">
+          <div class="ten wide right floated column">
+            <div class="ui grid">
+              <div class="ten wide column">
+                <h3 class="ui header section-header">Current Work</h3>
+              </div>
+              <div class="four wide right floated column">
+                <a href="index.html" class="ui large basic label" style="padding-top: 1.5rem; border: none">
+                  <i class="icon pencil alternate"></i>
+                  Edit
+                </a>
+              </div>
+            </div>
+            <hr>
+            <table class="ui very basic table">
+              <tbody>
+                <tr>
+                  <td width="20%">
+                    <p>Status</p>
+                  </td>
+                  <td class="ui small header">
+                    Available
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Scout</p>
+                  </td>
+                  <td class="ui small header">
+                    Take a scout
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Most wanted industries</p>
+                  </td>
+                  <td class="ui small header">
+                    <ul style="list-style: none; padding: 0;">
+                      <li>First option: Food</li>
+                      <li>Second option: Cosmetics</li>
+                      <li>Third option: Medicines</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Most wanted jobs</p>
+                  </td>
+                  <td >
+                    <ul class="ui small header" style="list-style: none; padding: 0;">
+                      <li>First option: Strategies</li>
+                      <li>Second option: Marketings</li>
+                      <li>Third option: Selling</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Most wanted place to work at</p>
+                  </td>
+                  <td class="ui small header">
+                    <ul style="list-style: none; padding: 0;">
+                      <li>First option: Tokyo</li>
+                      <li>Second option: Aomori</li>
+                      <li>Third option: Chiba</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            
+          </div>          
+        </div>
+        <div class="row">
+          <div class="ten wide right floated column">
+            <div class="ui grid">
+              <div class="ten wide column">
+                <h3 class="ui header section-header">Education Information</h3>
+              </div>
+              <div class="four wide right floated column">
+                <a href="index.html" class="ui large basic label" style="padding-top: 1.5rem; border: none">
+                  <i class="icon pencil alternate"></i>
+                  Edit
+                </a>
+              </div>
+            </div>
+            <hr>
+            <table class="ui very basic table">
+              <tbody>
+                <tr>
+                  <td width="20%">
+                    <p>Category</p>
+                  </td>
+                  <td class="ui small header">
+                    University
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>School</p>
+                  </td>
+                  <td class="ui small header">
+                    Tokyo University
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Major</p>
+                  </td>
+                  <td class="ui small header">
+                    Computer Science
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Graduation Year</p>
+                  </td>
+                  <td class="ui small header">
+                    2020
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            
+          </div>          
+        </div>
+        <div class="row">
+          <div class="ten wide right floated column">
+            <div class="ui grid">
+              <div class="ten wide column">
+                <h3 class="ui header section-header">Skills</h3>
+              </div>
+              <div class="four wide right floated column">
+                <a href="index.html" class="ui large basic label" style="padding-top: 1.5rem; border: none">
+                  <i class="icon pencil alternate"></i>
+                  Edit
+                </a>
+              </div>
+            </div>
+            <hr>
+            <table class="ui very basic table">
+              <tbody>
+                <tr>
+                  <td width="20%">
+                    <p>TOEIC / TOEFL</p>
+                  </td>
+                  <td>
+                    <strong>TOEIC: 960 pts / TOEFL: 93 pts</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Qualification</p>
+                  </td>
+                  <td>
+                    <ul style="list-style: none; padding: 0;">
+                      <li><strong>Commercial English: AAAA</strong></li>
+                      <li><strong>Commercial English: BBBB</strong></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Technical skills</p>
+                  </td>
+                  <td>
+                    <div class="ui styled fluid accordion">
+                      <div class="active title">
+                        <i class="dropdown icon"></i>
+                        Internship
+                      </div>
+                      <div class="active content">
+                        <p>A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                      </div>
+                      <div class="title">
+                        <i class="dropdown icon"></i>
+                        Experience
+                      </div>
+                      <div class="content">
+                        <p>There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
+                      </div>
+                      <div class="title">
+                        <i class="dropdown icon"></i>
+                        Operating System
+                      </div>
+                      <div class="content">
+                        <p>Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.</p>
+                        <p>A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.</p>
+                      </div>
+                      <div class="title">
+                        <i class="dropdown icon"></i>
+                        Programming
+                      </div>
+                      <div class="content">
+                        <p>Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.</p>
+                        <p>A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.</p>
+                      </div>
+                      <div class="title">
+                        <i class="dropdown icon"></i>
+                        Database System Management
+                      </div>
+                      <div class="content">
+                        <p>Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.</p>
+                        <p>A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.</p>
+                      </div>
+                      <div class="title">
+                        <i class="dropdown icon"></i>
+                        UI/UX
+                      </div>
+                      <div class="content">
+                        <p>Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.</p>
+                        <p>A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.</p>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            
+          </div>          
+        </div>
+        <div class="row">
+          <div class="ten wide right floated column">
+            <div class="ui grid">
+              <div class="ten wide column">
+                <h3 class="ui header section-header">Self PR</h3>
+              </div>
+              <div class="four wide right floated column">
+                <a href="index.html" class="ui large basic label" style="padding-top: 1.5rem; border: none">
+                  <i class="icon pencil alternate"></i>
+                  Edit
+                </a>
+              </div>
+            </div>
+            <hr>
+            <p>My strength is to work persistently to the end. The first baseball games since I entered was starting from a substitute. However, I was able to feel confident in the impact by continuing to swing 300 times in the morning and 700 times in the evening with regret as a spring.</p>
+          </div>          
+        </div>
+        <div class="row">
+          <div class="ten wide right floated column">
+            <div class="ui grid">
+              <div class="ten wide column">
+                <h3 class="ui header section-header">Block Companies</h3>
+              </div>
+              <div class="four wide right floated column">
+                <a href="index.html" class="ui large basic label" style="padding-top: 1.5rem; border: none">
+                  <i class="icon pencil alternate"></i>
+                  Edit
+                </a>
+              </div>
+            </div>
+            <hr>
+            <p style="color: grey">There are currently no blocking companies</p>            
+          </div>          
+        </div>
+        <div class="row">
+          <div class="ten wide right floated column">
+            <div class="ui grid">
+              <div class="ten wide column">
+                <h3 class="ui header section-header">Weekly Application</h3>
+              </div>
+            </div>
+            <hr>
+            <button class="ui basic primary huge button" style="margin-top: 1rem;">APPLY</button>            
+          </div>          
+        </div>
+        <div class="row">
+          <div class="ten wide right floated column">
+            <div class="ui grid">
+              <div class="ten wide column">
+                <h3 class="ui header section-header">Support</h3>
+              </div>
+            </div>
+            <hr>
+            <p>We can give your company superpowers to do things that they never thought possible. Let us delight your customers and empower your needs...through pure data analytics.</p>
+            <button class="ui primary huge button">Talk to a counselor</button>            
+          </div>          
+        </div>
+        <div class="row"></div>
+      </div>
+    </div>
+    
+    <div class="ui inverted vertical footer segment">
+      <div class="ui container">
+        <div class="ui stackable inverted divided equal height center aligned stackable grid">
+          <div class="row">
+            <a href="index.html" class="ui basic label footer-btns">About</a>
+            <a href="index.html" class="ui basic label footer-btns">Privacy</a>
+            <a href="index.html" class="ui basic label footer-btns">Terms</a>
+            <a href="index.html" class="ui basic label footer-btns">Contact</a>
+          </div>
+          <div class="row">
+            <img src="./image/logo.png" class="ui tiny image" style="padding-bottom: 2.5rem;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,9 +1,3 @@
-matrix = 
-[
-  [1,2,3,4],
-  [5,6,7,8]
-]
-
 def flip_vertically(matrix)
   rows = matrix.size
   cols = matrix.first.size
@@ -30,5 +24,11 @@ def rotate(matrix)
   flip_vertically(result)
   result.each {|r| puts r.inspect}
 end 
+
+matrix = 
+[
+  [1,2,3,4],
+  [5,6,7,8]
+]
 
 rotate(matrix)

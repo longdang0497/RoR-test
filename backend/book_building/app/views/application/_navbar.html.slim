@@ -1,0 +1,45 @@
+.ui.inverted.vertical.masthead.center.aligned.segment
+  .ui.container
+    .ui.large.secondary.inverted.pointing.menu
+      a href="#{root_path}" 
+        = image_tag("logo.png", class:"ui small image", style: "padding-top: 1.5rem;")
+      - if user_signed_in?
+        .right.item
+          .ui.icon.top.left.pointing.dropdown.button
+            i.icon.ellipsis.vertical
+            .menu
+              .header Menu
+              .item = link_to t('dashboard'), users_dashboard_path
+              .item = link_to t('profile.title'), user_profile_path
+              .item = link_to t('auction.title'), users_bids_path
+              .ui.divider
+              .item = link_to t('devise.sessions.logout'), destroy_user_session_path
+      - elsif admin_signed_in?
+        .right.item
+          .ui.icon.top.left.pointing.dropdown.button
+            i.icon.ellipsis.vertical
+            .menu
+              .header Menu
+              .item = link_to t('dashboard'), admins_dashboard_path
+              .item = link_to t('profile.title'), admin_profile_path
+              .item = link_to t('blog.title'), admins_blogs_path
+              .ui.divider
+              .item = link_to t('devise.sessions.logout'), destroy_admin_session_path
+      - else
+        .right.item
+          a.ui.teal.button#sign-in
+            i.sign.in.icon
+            = t('devise.sessions.login')
+          a.ui.blue.button style=("margin-left: 1rem") href="#{new_user_registration_path}" 
+            i.add.user.icon
+            = t('devise.registrations.signup')
+      a.toc.item
+        i.sidebar.icon
+    #menu-responsive.ui.large.secondary.inverted.pointing.menu style=("display:none")
+      / = render "search"
+.ui.modal.tiny
+  i.close.icon
+  .header.big-title
+    = t('devise.sessions.login')
+  .content
+    / = render 'users/sessions/user_sign_in'

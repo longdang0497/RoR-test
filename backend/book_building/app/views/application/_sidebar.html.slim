@@ -1,0 +1,9 @@
+.ui.vertical.inverted.sidebar.menu.right
+  a.active.item Home
+  - if user_signed_in?
+    = link_to "Log out", destroy_user_session_path, class: "item"
+  - elsif admin_signed_in?
+    = link_to "Log out", destroy_admin_session_path, class: "item"
+  - else
+    a.item href="#{new_user_session_path}"  Login
+    a.item href="#{new_user_registration_path}" Signup

@@ -1,0 +1,17 @@
+.ui.inverted.vertical.footer.segment.fixed_footer
+  .ui.center.aligned.container
+    .ui.horizontal.inverted.small.divided.link.list
+      .item
+        / = link_to  t('privacy'), privacypolicy_url
+        a href="#" style=("font-size: 20px") Privacy
+      .item
+        / = link_to  t('contact'), contact_url
+        a href="#" style=("font-size: 20px") Contact
+      .item
+        / = link_to  t('terms'), terms_url
+        a href="#" style=("font-size: 20px") Terms
+
+    = image_tag("logo.png", class:"ui small centered image", style: "padding-top: 1rem")
+    br
+    p.ui.header style=("color: white")
+      | © Created by Dang Hoang Long 

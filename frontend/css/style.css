@@ -1,0 +1,91 @@
+.imgUpload {
+  display: none;
+}
+
+.section-header {
+  text-transform: uppercase !important;
+  padding-top: 1.5rem !important;
+}
+
+.hidden.menu {
+  display: none;
+}
+
+.footer-btns {
+  color: white !important;
+  background-color: transparent !important;
+}
+
+.btn-upload {
+  position: absolute;
+  top: 200px;
+  right: 30px;
+}
+
+.masthead.segment {
+  min-height: 50px;
+  padding: 1em 0em;
+}
+
+.masthead .logo.item img {
+  margin-right: 1em;
+}
+
+.masthead .ui.menu .ui.button {
+  margin-left: 0.5em;
+}
+
+.masthead h1.ui.header {
+  margin-top: 3em;
+  margin-bottom: 0em;
+  font-size: 4em;
+  font-weight: normal;
+}
+
+.masthead h2 {
+  font-size: 1.7em;
+  font-weight: normal;
+}
+
+.quote.stripe.segment {
+  padding: 0em;
+}
+
+.quote.stripe.segment .grid .column {
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+.footer.segment {
+  padding: 5em 0em;
+}
+
+.secondary.pointing.menu .toc.item {
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  #menu-responsive .item,
+  #menu-responsive .menu,
+  .info-label {
+    display: none;
+  }
+
+  #menu-responsive .toc.item {
+    display: block;
+  }
+
+  .masthead.segment {
+    min-height: 150px;
+  }
+
+  .masthead h1.ui.header {
+    font-size: 2em;
+    margin-top: 1.5em;
+  }
+
+  .masthead h2 {
+    margin-top: 0.5em;
+    font-size: 1.5em;
+  }
+}
