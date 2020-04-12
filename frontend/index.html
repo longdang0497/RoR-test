@@ -35,11 +35,11 @@
         <div class="ui large secondary inverted pointing menu" >
           <a href="index.html"><img src="./image/logo.png" class="ui small image" style="padding-top: 1.5rem;"></a>
           <div class="right item">
-            <a class="ui large basic label info-label" style="background-color: transparent; pointer-events: none;">
+            <a class="ui large basic label" id="info-label" style="background-color: transparent; pointer-events: none;">
               <i class="user icon"></i>
               Tom Cruise
             </a>
-            <a class="ui inverted button btn-signout">Sign Out</a>
+            <a id="btn-signout" class="ui inverted button btn-signout">Sign Out</a>
             <a class="toc item">
               <i class="sidebar icon"></i>
             </a>
@@ -58,15 +58,62 @@
       <div class="ui middle aligned stackable grid container">
         <div class="row"></div>
         <div class="row">
-          <div class="four wide top attached column" style="position: relative;">
-            <img class="ui medium circular image" id="avatar" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1134289126.jpg?crop=0.6677678150070788xw:1xh;center,top&resize=480:*" >
-            <div class="btn-upload">
-              <button class="circular ui icon big primary button upload-button">
-                <i class="icon camera"></i>
-              </button>
-              <input class="imgUpload" type="file" accept="image/*"/>
+          <div class="four wide top attached column">
+            <div class="ui card">
+              <div class="image" style="text-align: center;">
+                <img class="ui medium image" id="avatar" style="width: 100%; height: 250px" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1134289126.jpg?crop=0.6677678150070788xw:1xh;center,top&resize=480:*" >
+                <div class="btn-upload">
+                  <button class="circular ui icon big primary button upload-button">
+                    <i class="icon camera"></i>
+                  </button>
+                  <input class="imgUpload" type="file" accept="image/*"/>
+                </div>
+              </div>
+              <div class="content">
+                <a class="header" style="text-align: center;">Tom Cruise</a>
+              </div>
             </div>
-            <a href="index.html" class="ui big basic label" style="background-color: transparent; pointer-events: none; border: none;">About</a>
+            <div class="ui segments">
+              <div class="ui right aligned segment">
+                <h3 class="ui left floated header">Trophies</h3>
+                <a href="index.html" class="ui medium basic right aligned label" style="border: none">
+                  <i class="icon pencil alternate"></i>
+                  Edit
+                </a>
+              </div>                   
+              <div class="ui horizontal segments" style="display: flex;">
+                <div class="ui segment">
+                  <div class="extra content">
+                    <div class="author" style="text-align: center;">
+                      <i class="big laptop icon"></i>
+                    </div>
+                  </div>
+                  <div class="content">
+                    <div class="header">IT Proficiency</div>
+                  </div>                        
+                </div>
+                <div class="ui segment">
+                  <div class="extra content">
+                    <div class="author" style="text-align: center;">
+                      <i class="big language icon"></i>
+                    </div>
+                  </div>
+                  <div class="content">
+                    <div class="header">Language Skills</div>
+                  </div>                        
+                </div>
+                <div class="ui segment">
+                  <div class="extra content">
+                    <div class="author" style="text-align: center;">
+                      <i class="big check icon"></i>
+                    </div>
+                  </div>
+                  <div class="content">
+                    <div class="header">Job Offers</div>
+                  </div>                        
+                </div>
+              </div>
+            </div>
           </div>
           <div class="ten wide right floated column">
             <div class="ui grid">

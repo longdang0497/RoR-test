@@ -18,8 +18,8 @@
 
 .btn-upload {
   position: absolute;
-  top: 200px;
-  right: 30px;
+  top: 190px;
+  right: 10px;
 }
 
 .masthead.segment {
@@ -66,12 +66,13 @@
 
 @media only screen and (max-width: 700px) {
   #menu-responsive .item,
-  #menu-responsive .menu,
-  .info-label {
+  .secondary.pointing.menu .menu,
+  .secondary.pointing.menu #info-label,
+  .secondary.pointing.menu #btn-signout {
     display: none;
   }
 
-  #menu-responsive .toc.item {
+  .secondary.pointing.menu .toc.item {
     display: block;
   }
 
