@@ -16,19 +16,19 @@
                   .log-in-input
                     .field
                       label.small-title
-                        i.user.icon
-                        span style=('font-size: 18px') = User.human_attribute_name(:name)
-                      = f.text_field :name, autofocus: true, placeholder: 'Your name'
-                    .field
-                      label.small-title
                         i.mail.icon
                         span style=('font-size: 18px') = User.human_attribute_name(:email)
                       = f.email_field :email, autofocus: true, placeholder: 'Your email'
                     .field
                       label.small-title
-                        i.phone.icon
-                        span style=('font-size: 18px') = User.human_attribute_name(:phone)
-                      = f.number_field :phone, autofocus: true, placeholder: 'Your phone number'
+                        i.key.icon
+                        span style=('font-size: 18px') = User.human_attribute_name(:password)
+                      = f.password_field :password, autofocus: true, placeholder: 'Your password'
+                    .field
+                      label.small-title
+                        i.key.icon
+                        span style=('font-size: 18px') = User.human_attribute_name(:password_confirmation)
+                      = f.password_field :password_confirmation, autofocus: true, placeholder: 'Your phone number'
                   span.bmd-form-group.is-filled
                   .btn_wrap.cf
                     br

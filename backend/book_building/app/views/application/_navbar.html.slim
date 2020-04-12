@@ -7,7 +7,7 @@
         .right.item
           a.ui.large.basic.label.info-label style=("background-color: transparent; pointer-events: none;") 
             i.user.icon
-            = current_user.name
+            = current_user.email
           a.ui.inverted.basic.button#sign-out style=("margin-left: 1rem;") href="#{destroy_user_session_path}" 
             i.sign-out.icon
             | Sign out
@@ -35,4 +35,4 @@
   .header.big-title
     = t('devise.sessions.login')
   .content
-    / = render 'users/sessions/user_sign_in'
+    = render 'users/sessions/user_sign_in'
