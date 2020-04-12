@@ -1,0 +1,26 @@
+= form_for current_user, url: url, method: action_method, :html => {class: 'ui form', multipart: true, remote: true} do |f|
+  .ui.error.message
+    ul.list#list_validation
+  .ui.segment
+    h4.ui.header Basic Information
+    .field
+      label.required Name
+      = f.text_field :name, autofocus: true, placeholder: "Type your name", value: current_user.name
+    .field
+      label.required Phone
+      = f.text_field :phone, autofocus: true, placeholder: "Type your phone number", value: current_user.phone
+    .field
+      .inline.fields
+      = f.label "Gender"
+      .field
+        .ui.radio.checkbox.field-radio
+          = f.radio_button :gender, Gender::MALE.value, checked: (Gender::MALE.value == current_user.gender)
+          label Male
+        .ui.radio.checkbox.field-radio
+          = f.radio_button :gender, Gender::FEMALE.value, checked: (Gender::FEMALE.value == current_user.gender)
+          label Female
+    .field
+      label Identity
+      = f.text_field :identity, autofocus: true, placeholder: "Type your identity number", value: current_user.identity
+  .sticky-bottom 
+    = f.submit "Submit", class: "ui primary fluid large submit button"

@@ -25,12 +25,16 @@ gem 'slim-rails'
 gem 'html2slim'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'rails-ujs', '~> 0.1.0'
+gem 'inum'
 
 # search
 gem 'ransack'
 
 # admin management
 gem 'rails_admin'
+
+# Decorators/View-Models
+gem 'draper'
 
 #image process
 gem 'image_processing', '~> 1.2'

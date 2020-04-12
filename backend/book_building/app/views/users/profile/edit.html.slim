@@ -1,0 +1,5 @@
+.ui.vertical.stripe.segment
+  .ui.middle.aligned.stackable.grid.container
+    .row
+      .column 
+        = render partial: "form", locals: {user: current_user, url: user_update_profile_path, action_method: :put}

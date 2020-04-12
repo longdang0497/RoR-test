@@ -1,0 +1,26 @@
+.ui.vertical.stripe.segment
+  .ui.middle.aligned.stackable.grid.container
+    .row
+      .column 
+        .ui.fluid.card
+          .ui.segment
+            h3.ui.header Basic Information
+            .field
+              .ui.black.ribbon.label Name
+              p.profile-info = current_user.name
+            .field
+              .ui.black.ribbon.label Gender
+              p.profile-info = current_user.gender == 0 ? "Male" : "Female"
+            .field
+              .ui.black.ribbon.label Email
+              p.profile-info = current_user.email
+            .field
+              .ui.black.ribbon.label Phone
+              p.profile-info = current_user.phone            
+            .field
+              .ui.black.ribbon.label Identity
+              p.profile-info = current_user.identity
+    .row
+      .column
+        .ui.segment
+          = link_to "Edit", user_edit_profile_path, class: "ui primary fluid large submit button"

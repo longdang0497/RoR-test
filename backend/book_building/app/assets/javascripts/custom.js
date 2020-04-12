@@ -17,6 +17,15 @@ document.addEventListener("turbolinks:load", function() {
       arrow: true
     });
 
+    $('.message .close')
+      .on('click', function() {
+        $(this)
+          .closest('.message')
+          .transition('fade')
+        ;
+      })
+    ;
+
     $(".mygallery").lightGallery({
       fullScreen: true,
       selector: '.border-img .photo-item .photo-text-more .photo-text-more a'

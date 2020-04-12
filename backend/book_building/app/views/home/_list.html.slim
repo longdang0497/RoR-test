@@ -1,5 +1,19 @@
 .ui.vertical.stripe.segment
   .ui.middle.aligned.stackable.grid.container
+    - if notice.present?
+      .row
+        .column
+          .ui.positive.message.notice 
+            i.close.icon 
+            .header Notice
+            p = notice
+    - if alert.present?
+      .row
+        .column
+          .ui.positive.message.alert 
+            i.close.icon 
+            .header Alert
+            p = alert
     .row
       .column
         .ui.center.aligned.segment
