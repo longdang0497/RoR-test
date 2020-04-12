@@ -1,0 +1,25 @@
+.list-images{
+  max-width: 500px;
+  margin: 0 auto;
+
+  .slick-dots{
+    bottom: 5px;
+  }
+  .slick-next{
+    right: 5px;
+    z-index: 1;
+  }
+  .slick-prev{
+    left: 5px;
+    z-index: 1;
+  }
+  img{
+    width: 100%;
+    height: 200px !important;
+    object-fit: cover;
+    object-position: center;
+  }
+  .slick-dots li.slick-active button:before {
+    color: white;
+  }
+}

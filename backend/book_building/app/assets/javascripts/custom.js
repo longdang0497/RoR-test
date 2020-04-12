@@ -10,5 +10,16 @@ document.addEventListener("turbolinks:load", function() {
     $(".ui.modal").modal({
       closable: true
     });
+
+    $('.list-images').slick({
+      dots: true,
+      infinite: true,
+      arrow: true
+    });
+
+    $(".mygallery").lightGallery({
+      fullScreen: true,
+      selector: '.border-img .photo-item .photo-text-more .photo-text-more a'
+    });
   });
 });

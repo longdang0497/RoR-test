@@ -3,20 +3,23 @@
     .row
       .column
         .field
-          = f.search_field :title_cont, :class => "form-control", :placeholder => "Tìm tên sản phẩm"
+          = f.search_field :name_cont, :class => "form-control", :placeholder => "Tìm tên sản phẩm"
       .column
         .field
           = f.search_field :address_cont, :class => "form-control", :placeholder => "Tìm địa chỉ"
       .column
         .field
-          = f.select :product_type_id_eq, options_for_select(ProductType.all.collect{ |t| [t.name, t.id] }, :selected => (params[:q][:product_type_id_eq] if params[:q].present?)), {include_blank: t('search.categories')}, {autofocus: 'true', class: 'form-control select-search'}
+          = f.search_field :district_cont, :class => "form-control", :placeholder => "Tìm quận"
+      .column
+        .field
+          = f.search_field :city_cont, :class => "form-control", :placeholder => "Tìm tỉnh thành"
+    / .row
+    /   .column
+    /     .form-group
+    /       = f.select :bedroom_number_eq, options_for_select(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], :selected => (params[:q][:bedroom_number_eq] if params[:q].present?)), {include_blank: t('search.bedroom')}, {autofocus: 'true', class: 'form-control select-search'}
+    /   .column
+    /     .form-group
+    /       = f.select :toilet_number_eq, options_for_select(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], :selected => (params[:q][:toilet_number_eq] if params[:q].present?)), {include_blank: t('search.bathroom')}, {autofocus: 'true', class: 'form-control select-search'}
     .row
       .column
-        .form-group
-          = f.select :bedroom_number_eq, options_for_select(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], :selected => (params[:q][:bedroom_number_eq] if params[:q].present?)), {include_blank: t('search.bedroom')}, {autofocus: 'true', class: 'form-control select-search'}
-      .column
-        .form-group
-          = f.select :toilet_number_eq, options_for_select(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], :selected => (params[:q][:toilet_number_eq] if params[:q].present?)), {include_blank: t('search.bathroom')}, {autofocus: 'true', class: 'form-control select-search'}
-    .row
-      .column
-        = f.submit t('search.button'), :class => "ui right floated large primary button", style: "background-color: #54c8ff; width: 10rem"
+        = f.submit "Tìm", :class => "ui right floated large primary button", style: "background-color: #54c8ff; width: 10rem"

@@ -1,0 +1,60 @@
+= content_for :title_header do
+  | BookBuilding | Show Building
+end
+
+.ui.main.text.container
+  div style=("display:flex")
+    - if @building.images.attached?
+      - @building.images.each do |img|
+        = image_tag(img, width: '100%', height: '20%')
+  .ui.segment
+    h1.ui.header = @building.name
+    .ui.ribbon.teal.label
+      = @building.updated_at.strftime('%d/%m/%Y')
+    p.ui.small.header
+      = @building.address
+      | &nbsp;
+      = @building.district
+      | &nbsp;
+      = @building.city
+    p
+      | It was build in&nbsp;
+      strong = @building.build_year
+    .ui.stackable.grid
+      .row
+        .column
+          h3.ui.header Discription
+          hr
+          p = raw(@building.discription)
+      .row
+        .column
+          h3.ui.header Floors & Room for rent 
+          hr
+          table.ui.primary.celled.table
+            thead
+              tr
+                th Room Num
+                th Floor Num
+                th Rental Fee
+                th Management Fee
+                th Acreage
+                th Actions
+            tbody
+              - @rooms.each do |r|
+                tr
+                td = r.room_num
+                td = Floor.find(r.floor_id).floor_num
+                td
+                  = ManagementFee.find(r.rental_fee_id).price
+                  | &nbsp;
+                  = FeeUnit.find(ManagementFee.find(r.rental_fee_id).fee_unit_id).name
+                td
+                  = ManagementFee.find(r.management_fee_id).price
+                  | &nbsp;
+                  = FeeUnit.find(ManagementFee.find(r.management_fee_id).fee_unit_id).name
+                td
+                  = r.acreage
+                  | &nbsp;m²
+                td
+                  = link_to "Details", room_path(r), class: "ui primary button"
+

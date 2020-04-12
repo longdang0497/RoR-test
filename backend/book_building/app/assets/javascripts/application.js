@@ -16,3 +16,5 @@
 //= require turbolinks
 //= require jquery-ui.min
 //= require custom
+//= require lightgallery
+//= require lg-fullscreen

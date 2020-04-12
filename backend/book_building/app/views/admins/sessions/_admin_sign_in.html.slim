@@ -1,0 +1,34 @@
+  = form_for(:admin, url: session_path(:admin), :html => {:class => 'ui form', :id => 'session-form'}) do |f|
+    .form-group.bmd-form-group.log-in-input
+      br      
+      label.small-title
+        i.mail.icon
+        span Email
+      = f.hidden_field :redirect_url, value: "#{request.original_url}"
+      .ui.fluid.big.input.focus.auth-input style=('padding-top: 1rem;')
+        = f.email_field :email, autofocus: true, placeholder: 'Your email'
+    .form-group.bmd-form-group.log-in-input
+      br#optional
+      i.key.icon
+      label.small-title Password
+      .ui.fluid.big.input.focus.auth-input style=('padding-top: 1rem;')
+        = f.password_field :password, autocomplete: "off", placeholder: 'Your password'
+    span.bmd-form-group.is-filled
+    .ui.checkbox.auth-checkbox
+      = f.check_box :remember_me
+      = f.label :remember_me, "Remember me"
+    .btn_wrap.cf
+      button.ui.fluid.large.primary.button.ld-ext-right.btn-submit type='submit' Login
+    .text-center.sp_pd.mt2
+      - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+        br
+        br#optional
+        = link_to "Forgot password?", new_password_path(:admin), class: 'title-footer'
+  javascript:
+    $('button').click(function() {
+      $('#session-form').submit(function() {
+        $('button').removeClass("ui fluid large primary button").addClass("ui primary fluid large loading submit button");
+        $('#btn-submit-text').hide();
+        $('button').attr("disabled", true);
+      })
+    })

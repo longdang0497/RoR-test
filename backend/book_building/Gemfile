@@ -29,6 +29,9 @@ gem 'rails-ujs', '~> 0.1.0'
 # search
 gem 'ransack'
 
+# admin management
+gem 'rails_admin'
+
 #image process
 gem 'image_processing', '~> 1.2'
 

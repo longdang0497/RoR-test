@@ -27,8 +27,8 @@
                     .field
                       label.small-title
                         i.phone.icon
-                        span style=('font-size: 18px') = User.human_attribute_name(:tel)
-                      = f.number_field :tel, autofocus: true, placeholder: 'Your phone number'
+                        span style=('font-size: 18px') = User.human_attribute_name(:phone)
+                      = f.number_field :phone, autofocus: true, placeholder: 'Your phone number'
                   span.bmd-form-group.is-filled
                   .btn_wrap.cf
                     br

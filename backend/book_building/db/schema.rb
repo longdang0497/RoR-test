@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_054520) do
+ActiveRecord::Schema.define(version: 2020_04_12_151401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_04_11_054520) do
     t.string "unconfirmed_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name", default: ""
     t.index ["confirmation_token"], name: "index_admins_on_confirmation_token", unique: true
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
@@ -94,6 +95,7 @@ ActiveRecord::Schema.define(version: 2020_04_11_054520) do
     t.string "district", default: ""
     t.string "address", default: ""
     t.bigint "admin_id"
+    t.string "name", default: ""
     t.index ["admin_id"], name: "index_buildings_on_admin_id"
   end
 
@@ -126,20 +128,40 @@ ActiveRecord::Schema.define(version: 2020_04_11_054520) do
     t.index ["building_id"], name: "index_floors_on_building_id"
   end
 
+  create_table "management_fees", force: :cascade do |t|
+    t.integer "price"
+    t.bigint "fee_unit_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "admin_id"
+    t.index ["admin_id"], name: "index_management_fees_on_admin_id"
+    t.index ["fee_unit_id"], name: "index_management_fees_on_fee_unit_id"
+  end
+
+  create_table "rental_fees", force: :cascade do |t|
+    t.integer "price"
+    t.bigint "fee_unit_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "admin_id"
+    t.index ["admin_id"], name: "index_rental_fees_on_admin_id"
+    t.index ["fee_unit_id"], name: "index_rental_fees_on_fee_unit_id"
+  end
+
   create_table "rooms", force: :cascade do |t|
-    t.string "rental_fee"
-    t.string "management_fee"
-    t.string "acreage"
+    t.float "acreage"
     t.string "room_num"
     t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "floor_id"
     t.bigint "admin_id"
-    t.bigint "fee_unit_id"
+    t.bigint "rental_fee_id"
+    t.bigint "management_fee_id"
     t.index ["admin_id"], name: "index_rooms_on_admin_id"
-    t.index ["fee_unit_id"], name: "index_rooms_on_fee_unit_id"
     t.index ["floor_id"], name: "index_rooms_on_floor_id"
+    t.index ["management_fee_id"], name: "index_rooms_on_management_fee_id"
+    t.index ["rental_fee_id"], name: "index_rooms_on_rental_fee_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -162,6 +184,7 @@ ActiveRecord::Schema.define(version: 2020_04_11_054520) do
     t.string "unconfirmed_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name", default: ""
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -177,7 +200,12 @@ ActiveRecord::Schema.define(version: 2020_04_11_054520) do
   add_foreign_key "fee_units", "admins"
   add_foreign_key "floors", "admins"
   add_foreign_key "floors", "buildings"
+  add_foreign_key "management_fees", "admins"
+  add_foreign_key "management_fees", "fee_units"
+  add_foreign_key "rental_fees", "admins"
+  add_foreign_key "rental_fees", "fee_units"
   add_foreign_key "rooms", "admins"
-  add_foreign_key "rooms", "fee_units"
   add_foreign_key "rooms", "floors"
+  add_foreign_key "rooms", "management_fees"
+  add_foreign_key "rooms", "rental_fees"
 end
