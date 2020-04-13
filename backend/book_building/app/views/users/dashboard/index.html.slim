@@ -8,7 +8,9 @@ end
       .column 
         .ui.fluid.card
           .ui.segment
-            h3.ui.header = current_user.name
+            h1.ui.header
+              | Name: &nbsp;
+              = current_user.name
             .ui.horizontal.segments
               .ui.segment
                 = link_to user_profile_path, class: "ui massive primary fluid button" do
@@ -18,3 +20,7 @@ end
                 = link_to users_favorites_path, class: "ui massive green fluid button" do
                   i.star.icon
                   | Favorite
+              .ui.segment
+                = link_to users_bookings_path, class: "ui massive teal fluid button" do
+                  i.star.icon
+                  | Booked Rooms

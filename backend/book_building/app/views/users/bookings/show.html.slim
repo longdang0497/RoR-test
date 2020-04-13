@@ -1,0 +1,59 @@
+= content_for :title_header do
+  | BookBuilding | User Booked Room
+end
+
+.ui.vertical.stripe.segment
+  .ui.middle.aligned.stackable.grid.container
+    .row
+      .column
+        .ui.segments
+          .ui.segment
+            h4.ui.header Booking Information
+          .ui.segment.field.field_validation
+            h4.ui.header Name
+            .ui.transparent.input
+              input placeholder="Type your name" readonly="readonly" value="#{current_user.name}"
+          .ui.segment.field.field_validation
+            h4.ui.header Email
+            .ui.transparent.input  
+              input placeholder="Type your email" readonly="readonly" value="#{current_user.email}"
+          .ui.segment.field.field_validation
+            h4.ui.header Phone
+            .ui.transparent.input
+              input placeholder="Type your phone" readonly="readonly" value="#{current_user.phone}"
+          .ui.segment.field
+            h4.ui.header Messages
+            .ui.transparent.input
+              input placeholder="Type your phone" cols="10" rows="5" readonly="readonly" value="#{@booking.messages}"
+          .ui.segment.field
+            h4.ui.header Profession
+            .ui.transparent.input
+              input placeholder="Type your profession" readonly="readonly" value="#{@booking.profession}"
+          .ui.segment.field
+            h4.ui.header Length of Service
+            .ui.transparent.input
+              input placeholder="Type your service's length" readonly="readonly" value="#{@booking.service_length}"
+          .ui.segment.field
+            h4.ui.header Desired Time
+            .ui.transparent.input
+              input placeholder="Type your desired time to move in" readonly="readonly" value="#{@booking.desired_time}"
+          .ui.segment.field.field_validation
+            h4.ui.header Room Number
+            .ui.transparent.input
+              input placeholder="You want to book room number" readonly="readonly" value="#{Room.find(@booking.room_id).room_num}"
+          .ui.segment.field.field_validation
+            h4.ui.header Floor Number
+            .ui.transparent.input
+              input placeholder="You want to book room on floor number" readonly="readonly" value="#{Floor.find(Room.find(@booking.room_id).floor_id).floor_num}"
+          .ui.segment.field.field_validation
+            h4.ui.header Building
+            .ui.transparent.input
+              input placeholder="You want to book room in building" readonly="readonly" value="#{Building.find(Floor.find(Room.find(@booking.room_id).floor_id).building_id).name}"
+          .ui.segment.field.field_validation
+            h4.ui.header Rental Fee
+            .ui.transparent.input
+              input placeholder="Room's rental fee" readonly="readonly" value="#{RentalFee.export_rental_fee(Room.find(@booking.room_id).rental_fee_id)}"
+          .ui.segment.field.field_validation
+            h4.ui.header Management Fee
+            .ui.transparent.input
+              input placeholder="Room's management fee" readonly="readonly" value="#{ManagementFee.export_management_fee(Room.find(@booking.room_id).rental_fee_id)}"

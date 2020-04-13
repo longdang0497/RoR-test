@@ -22,5 +22,5 @@ end
 namespace :users do
   get '/', to: 'dashboard#index', as: :dashboard
   resources :favorites, only: %I[index]
-  resources :bookings, only: %I[index]
+  resources :bookings, only: [:index, :show]
 end

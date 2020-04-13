@@ -16,7 +16,7 @@ RailsAdmin.config do |config|
     bulk_delete
     show
     edit do
-      except ["Booking"]
+      except ["User", "Booking"]
     end
     delete 
     show_in_app

@@ -1,0 +1,38 @@
+= content_for :title_header do
+  | BookBuilding | User List of Booked Rooms
+end
+
+.ui.vertical.stripe.segment
+  .ui.middle.aligned.stackable.grid.container
+    .row
+      .column 
+        .ui.fluid.card
+          .ui.segment
+            h1.ui.header List of booked rooms
+            table.ui.blue.celled.table
+              thead
+                tr
+                  th ID
+                  th Room
+                  th Building
+                  th Messages
+                  th Profession
+                  th Created at
+                  th Actions
+              tbody
+                - @bookings.each do |book|
+                  tr
+                    td = book.id
+                    td
+                      | Room: &nbsp;
+                      = Room.find(book.room_id).room_num
+                      | &nbsp;- Floor: &nbsp;
+                      = Floor.find(Room.find(book.room_id).floor_id).floor_num
+                    td = Building.find(Floor.find(Room.find(book.room_id).floor_id).building_id).name
+                    td = book.messages
+                    td = book.profession
+                    td = book.created_at.strftime('%d/%m/%Y')
+                    td
+                      = link_to users_booking_path(book) do
+                        button.ui.icon.button.blue
+                          i.info.circle.icon

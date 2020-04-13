@@ -18,16 +18,24 @@ end
       = @room.updated_at.strftime('%d/%m/%Y')
     h3.ui.header Basic Information
     hr
-    .ui.blue.segments 
-      .ui.horizontal.segments
-        .ui.segment
-          p.ui.small.header
-            | Rental fee: &nbsp;
-            = RentalFee.export_rental_fee(@room.rental_fee_id)
-        .ui.segment
-          p.ui.small.header
-            | Management fee: &nbsp;
-            = ManagementFee.export_management_fee(@room.management_fee_id)
+    .ui.segments
+      .ui.segment
+        p.ui.small.header
+          | Building: &nbsp;
+          = Building.find(Floor.find(@room.floor_id).building_id).name
+      .ui.segment
+        p.ui.small.header
+          | Acreage: &nbsp;
+          = @room.acreage 
+          | &nbsp;m²     
+      .ui.segment
+        p.ui.small.header
+          | Rental fee: &nbsp;
+          = RentalFee.export_rental_fee(@room.rental_fee_id)
+      .ui.segment
+        p.ui.small.header
+          | Management fee: &nbsp;
+          = ManagementFee.export_management_fee(@room.management_fee_id)
     h3.ui.header Contact Information
     hr
     .ui.blue.segments 
