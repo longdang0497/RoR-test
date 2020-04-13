@@ -22,36 +22,8 @@ html, body {
   }
 }
 
-.material-icons {
-  color: #54c8ff;
-}
-
-.nav-shadow {
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14);
-}
-
 .noactive {
   display: none;
-}
-
-.g-footer {
-  background: #555;
-  color: #fff;
-  padding: 3em 0;
-}
-
-.m-main.bg {
-  background: #f5f5f5;
-  /* min-height: calc(100vh - 207px); */
-}
-
-.grid {
-  height: 100%;
-}
-
-.host-img {
-  width: 100%;
-  height: 100%;
 }
 
 .authentication-container {
@@ -95,21 +67,6 @@ html, body {
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
   text-align: start !important;
-}
-
-.more-box {
-  background-color: white !important;
-  text-align: center;
-}
-
-.more-box-menu {
-  margin: 0.5rem !important;
-  font-size: 1.3rem !important;
-}
-
-.select-search>.list {
-  height: 15rem;
-  overflow: auto !important;
 }
 
 .big-title {
@@ -705,22 +662,12 @@ label.required:after {
   display: block;
 }
 
-.property-thumb {
-  width: 360px;
-  height: 360px;
-  margin: 0;
-}
-
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .centered-cut {
     max-width: calc(100vw - 47.4rem);
   }
 
   .content-box {
-    max-width: calc(100vw - 47.4rem);
-  }
-
-  .property-thumb {
     max-width: calc(100vw - 47.4rem);
   }
 }
@@ -733,10 +680,6 @@ label.required:after {
   .content-box {
     max-width: calc(100vw - 32.3rem);
   }
-
-  .property-thumb {
-    max-width: calc(100vw - 32.3rem);
-  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -747,10 +690,6 @@ label.required:after {
   .content-box {
     max-width: calc(100vw - 3.8rem);
   }
-
-  .property-thumb {
-    max-width: calc(100vw - 3.8rem);
-  }
 }
 
 @media only screen and (max-width: 767px) and (orientation: landscape) {
@@ -759,10 +698,6 @@ label.required:after {
   }
 
   .content-box {
-    max-width: calc(100vw - 26.9rem);
-  }
-
-  .property-thumb {
     max-width: calc(100vw - 26.9rem);
   }
 }
@@ -797,37 +732,6 @@ label.required:after {
 .fixed_footer{
   flex-shrink: 0;
 } */
-
-.dropzone{
-  border: 2px #D4D4D4 dashed !important;
-}
-
-.zoomify_image {
-  max-height: 150px;
-  padding: 6px;
-  border: 0.1em solid;
-  border-color: #D4D4D4;
-  border-radius: 8px;
-  margin: 5px 3px;
-	cursor: pointer;
-}
-
-.zoomify_image:hover + a i.close {
-  display: inline;
-}
-
-.zoomify_images a i.close:hover {
-  display: inline;
-}
-
-.zoomify_images i.close {
-  display: none;
-  position: relative;
-  right: 11px;
-  top: -143px;
-  font-size: 1.5em;
-  cursor: pointer;
-}
 
 .detail_table td.header{
   font-weight: 600;
