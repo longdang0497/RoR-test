@@ -5,7 +5,7 @@ class ManagementFee < ApplicationRecord
 
   validates :price, :fee_unit_id, :admin_id, presence: true
 
-  scope :export_management_fee, -> { price + " " + fee_unit.name}
+  scope :export_management_fee, ->(value) { ManagementFee.find(value).price.to_s + " " + FeeUnit.find(ManagementFee.find(value).fee_unit_id).name}
 
   rails_admin do
     list do 

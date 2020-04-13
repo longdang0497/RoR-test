@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable
   has_many :bookings
   has_many :favorites, dependent: :destroy
+  bind_inum :gender, Gender
 end

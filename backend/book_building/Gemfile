@@ -30,6 +30,9 @@ gem 'inum'
 # search
 gem 'ransack'
 
+# simple form
+gem 'simple_form'
+
 # admin management
 gem 'rails_admin'
 

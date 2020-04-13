@@ -1,3 +1,42 @@
 = content_for :title_header do
   | BookBuilding | Show Room
 end
+
+.ui.main.text.container
+  .mygallery style=("display:flex;")
+    - if @room.images.attached?
+      - @room.images.each do |img|
+        a href="#{rails_blob_path(img, only_path: true)}" style=("height: 180px; width: 100%;")
+          = image_tag(img, style: "width: 100%; max-height: 100%; object-fit: cover;")
+  .ui.segment
+    h1.ui.header 
+      | Room &nbsp;
+      = @room.room_num
+      | &nbsp;-&nbsp;Floor &nbsp;
+      = Floor.find(@room.floor_id).floor_num
+    .ui.ribbon.teal.label
+      = @room.updated_at.strftime('%d/%m/%Y')
+    h3.ui.header Basic Information
+    hr
+    .ui.blue.segments 
+      .ui.horizontal.segments
+        .ui.segment
+          p.ui.small.header
+            | Rental fee: &nbsp;
+            = RentalFee.export_rental_fee(@room.rental_fee_id)
+        .ui.segment
+          p.ui.small.header
+            | Management fee: &nbsp;
+            = ManagementFee.export_management_fee(@room.management_fee_id)
+    h3.ui.header Contact Information
+    hr
+    .ui.blue.segments 
+      .ui.horizontal.segments
+        .ui.segment
+          p.ui.small.header
+            | Email: &nbsp;
+            = @room.admin.email
+        .ui.segment
+          p.ui.small.header
+            | Phone: &nbsp;
+            = @room.admin.phone

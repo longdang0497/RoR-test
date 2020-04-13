@@ -1,0 +1,64 @@
+= simple_form_for @booking, :url => room_bookings_path, html: {class: 'ui form', multipart: true, remote: true, id: 'booking-form'} do |f|
+  .ui.error.message
+    ul.list#list_validation
+  .ui.stacked.segments
+    .ui.segment
+      h4.ui.header Booking Information
+    = f.hidden_field :user_id, value: current_user.id
+    = f.hidden_field :messages, value: @booking.messages
+    = f.hidden_field :profession, value: @booking.profession
+    = f.hidden_field :service_length, value: @booking.service_length
+    = f.hidden_field :desired_time, value: @booking.desired_time
+    = f.hidden_field :room_id, value: @room.id
+    .ui.segment.field.field_validation
+      label Name
+      .ui.transparent.input
+        input placeholder="Type your name" readonly="readonly" value="#{current_user.name}"
+    .ui.segment.field.field_validation
+      label Email
+      .ui.transparent.input  
+        input placeholder="Type your email" readonly="readonly" value="#{current_user.email}"
+    .ui.segment.field.field_validation
+      label Phone
+      .ui.transparent.input
+        input placeholder="Type your phone" readonly="readonly" value="#{current_user.phone}"
+    .ui.segment.field
+      label Messages
+      .ui.transparent.input
+        input placeholder="Type your phone" cols="10" rows="5" readonly="readonly" value="#{@booking.messages}"
+    .ui.segment.field
+      label Profession
+      .ui.transparent.input
+        input placeholder="Type your profession" readonly="readonly" value="#{@booking.profession}"
+    .ui.segment.field
+      label Length of Service
+      .ui.transparent.input
+        input placeholder="Type your service's length" readonly="readonly" value="#{@booking.service_length}"
+    .ui.segment.field
+      label Desired Time
+      .ui.transparent.input
+        input placeholder="Type your desired time to move in" readonly="readonly" value="#{@booking.desired_time}"
+    .ui.segment.field.field_validation
+      label Room Number
+      .ui.transparent.input
+        input placeholder="You want to book room number" readonly="readonly" value="#{@room.room_num}"
+    .ui.segment.field.field_validation
+      label Floor Number
+      .ui.transparent.input
+        input placeholder="You want to book room on floor number" readonly="readonly" value="#{Floor.find(@room.floor_id).floor_num}"
+    .ui.segment.field.field_validation
+      label Building
+      .ui.transparent.input
+        input placeholder="You want to book room in building" readonly="readonly" value="#{Building.find(Floor.find(@room.floor_id).building_id).name}"
+    .ui.segment.field.field_validation
+      label Rental Fee
+      .ui.transparent.input
+        input placeholder="Room's rental fee" readonly="readonly" value="#{RentalFee.export_rental_fee(@room.rental_fee_id)}"
+    .ui.segment.field.field_validation
+      label Management Fee
+      .ui.transparent.input
+        input placeholder="Room's management fee" readonly="readonly" value="#{ManagementFee.export_management_fee(@room.rental_fee_id)}"
+  .ui.stacked.segment
+    = submit_tag "Create", class: "ui fluid primary button"
+    / = link_to preview_room_booking_path(@booking), method: :post do
+    /   button.fluid.ui.button.red Preview

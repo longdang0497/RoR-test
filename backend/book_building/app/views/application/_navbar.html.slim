@@ -5,7 +5,7 @@
         = image_tag("logo.png", class:"ui small image", style: "padding-top: 1.5rem;")
       - if user_signed_in?
         .right.item
-          a.ui.large.basic.label.info-label href="#{user_profile_path}" style=("background-color: transparent;") 
+          a.ui.large.basic.label.info-label href="#{users_dashboard_path}" style=("background-color: transparent;") 
             i.user.icon
             = current_user.email
           a.ui.inverted.basic.button#sign-out style=("margin-left: 1rem;") href="#{destroy_user_session_path}" 

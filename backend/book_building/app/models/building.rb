@@ -6,6 +6,7 @@ class Building < ApplicationRecord
   has_many :floors
 
   validates :admin_id, :build_year, :city, :district, :floor_number, presence: true  
+  scope :similar, ->(building){ where "district LIKE ? OR city LIKE ?", "%#{building.district}%", "%#{building.city}%"}
 
   attr_accessor :remove_images
   after_save do

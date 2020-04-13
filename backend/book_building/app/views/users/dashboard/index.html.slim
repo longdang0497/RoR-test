@@ -1,0 +1,20 @@
+= content_for :title_header do
+  | BookBuilding | User Dashboard
+end
+
+.ui.vertical.stripe.segment
+  .ui.middle.aligned.stackable.grid.container
+    .row
+      .column 
+        .ui.fluid.card
+          .ui.segment
+            h3.ui.header = current_user.name
+            .ui.horizontal.segments
+              .ui.segment
+                = link_to user_profile_path, class: "ui massive primary fluid button" do
+                  i.user.icon
+                  | Profile
+              .ui.segment
+                = link_to users_favorites_path, class: "ui massive green fluid button" do
+                  i.star.icon
+                  | Favorite

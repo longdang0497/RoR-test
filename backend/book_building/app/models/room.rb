@@ -8,6 +8,11 @@ class Room < ApplicationRecord
 
   validates :rental_fee_id, :management_fee_id, :acreage, :room_num, presence: true  
 
+  attr_accessor :remove_images
+  after_save do
+    Array(remove_images).each { |id| images.find_by_id(id)&.try(:purge) }
+  end
+  
   rails_admin do
     list do 
       field :id
@@ -61,6 +66,7 @@ class Room < ApplicationRecord
           Admin.find(value).name
         end 
       end 
+      field :images, :multiple_active_storage
       field :created_at
     end
 
@@ -91,6 +97,44 @@ class Room < ApplicationRecord
           ManagementFee.all.collect{|m| ["#{m.price} #{FeeUnit.find(m.fee_unit_id).name}", m.id]}
         end
       end
+      field :images, :multiple_active_storage do
+        delete_method :remove_images
+      end
+      field :admin_id, :hidden do
+        default_value do
+          bindings[:view].current_admin.id
+        end
+      end
+    end
+
+    create do
+      field :floor_id, :enum do
+        required true
+        label 'Floor'
+        enum do
+          Floor.all.collect{|f| [f.floor_num, f.id]}
+        end
+      end  
+      field :room_num, :integer do
+        required true
+      end
+      field :acreage
+      field :status
+      field :rental_fee_id, :enum do
+        required true
+        label 'Rental Fee'
+        enum do
+          RentalFee.all.collect{|r| ["#{r.price} #{FeeUnit.find(r.fee_unit_id).name}", r.id]}
+        end
+      end
+      field :management_fee_id, :enum do
+        required true
+        label 'Management Fee'
+        enum do
+          ManagementFee.all.collect{|m| ["#{m.price} #{FeeUnit.find(m.fee_unit_id).name}", m.id]}
+        end
+      end
+      field :images, :multiple_active_storage
       field :admin_id, :hidden do
         default_value do
           bindings[:view].current_admin.id

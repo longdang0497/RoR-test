@@ -1,0 +1,28 @@
+= content_for :title_header do
+  | BookBuilding | Room Booking
+end
+
+.ui.vertical.stripe.segment
+  .ui.middle.aligned.stackable.grid.container
+    .row
+      .column
+        h1.ui.huge.header Booking Room
+    .row
+      .column
+        .ui.segment
+          .ui.fluid.ordered.steps
+            .active.step
+              .content
+                .title Filling form
+                .description Filling booking form
+            .step
+              .content
+                .title Confirmation
+                .description Take a preview of what you want to book
+            .step
+              .content
+                .title Completed
+                .description Done!
+    .row
+      .column
+        = render partial: "preview_form", locals: {booking: @booking}

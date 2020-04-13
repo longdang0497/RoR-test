@@ -28,7 +28,7 @@ document.addEventListener("turbolinks:load", function() {
 
     $(".mygallery").lightGallery({
       fullScreen: true,
-      selector: '.border-img .photo-item .photo-text-more .photo-text-more a'
+      selector: 'a'
     });
   });
 });

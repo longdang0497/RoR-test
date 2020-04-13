@@ -1,0 +1,39 @@
+= content_for :title_header do
+  | BookBuilding | User - Favorites
+end
+
+.ui.vertical.stripe.segment
+  .ui.middle.aligned.stackable.grid.container
+    .row
+      .column
+        h1.ui.huge.header Danh sách Building bạn yêu thích
+    .row
+      .column
+        .ui.three.stackable.cards
+          - @favorite_buildings.each do |building|
+            .card
+              .ui.image
+                .list-images
+                  - if building.images.attached?
+                    - building.images.each do |img| 
+                      = link_to building_path(building) do
+                        = image_tag(img)
+                  - else 
+                    = image_tag("logo.png")              
+              .content
+                .header = building.name
+                .meta
+                  = building.district
+                  | &nbsp;
+                  = building.city
+                .description style=("height: 4rem;") = raw(building.discription)
+                span.left.floated
+                  a.ui.label
+                    | Total floors:&nbsp;
+                    = building.floor_number
+                  a.ui.label
+                    | Built in &nbsp;
+                    = building.build_year
+                span.right.floated 
+                  a.ui.label
+                    = building.updated_at.strftime('%d/%m/%Y')

@@ -3,58 +3,103 @@
 end
 
 .ui.main.text.container
-  div style=("display:flex")
+  .mygallery style=("display:flex;")
     - if @building.images.attached?
       - @building.images.each do |img|
-        = image_tag(img, width: '100%', height: '20%')
-  .ui.segment
-    h1.ui.header = @building.name
-    .ui.ribbon.teal.label
-      = @building.updated_at.strftime('%d/%m/%Y')
-    p.ui.small.header
-      = @building.address
-      | &nbsp;
-      = @building.district
-      | &nbsp;
-      = @building.city
-    p
-      | It was build in&nbsp;
-      strong = @building.build_year
-    .ui.stackable.grid
-      .row
-        .column
-          h3.ui.header Discription
-          hr
-          p = raw(@building.discription)
-      .row
-        .column
-          h3.ui.header Floors & Room for rent 
-          hr
-          table.ui.primary.celled.table
-            thead
-              tr
-                th Room Num
-                th Floor Num
-                th Rental Fee
-                th Management Fee
-                th Acreage
-                th Actions
-            tbody
-              - @rooms.each do |r|
+        a href="#{rails_blob_path(img, only_path: true)}" style=("height: 180px; width: 100%;")
+          = image_tag(img, style: "width: 100%; max-height: 100%; object-fit: cover;")
+  .ui.segments  
+    .ui.segment
+      h1.ui.header = @building.name
+      - if user_signed_in?
+        = link_to user_favorites_building_path(@building), :method => "put", class: "ui teal icon right floated button" do
+          - if Favorite.where(building_id: @building).present?
+            i.star.icon
+            | &nbsp;Unfavorite
+          - else
+            i.star.outline.icon
+            | &nbsp;Favorite
+      - else
+        a.ui.teal.icon.right.floated.button href="#{new_user_session_path}"
+          i.star.outline.icon
+          | &nbsp;Favorite
+      .ui.ribbon.teal.label
+        = @building.updated_at.strftime('%d/%m/%Y')
+      p.ui.small.header
+        i.map.marker.alternate.icon
+        = @building.address
+        | &nbsp;
+        = @building.district
+        | &nbsp;
+        = @building.city
+      .ui.stackable.grid
+        .row
+        .row
+          .column
+            h3.ui.header Discription
+            hr
+            p style=("margin-top: 1rem")
+              | It was build in&nbsp;
+              strong = @building.build_year
+            p = raw(@building.discription)
+        .row
+          .column
+            h3.ui.header Floors & Room for rent 
+            hr
+            table.ui.blue.celled.table
+              thead
                 tr
-                td = r.room_num
-                td = Floor.find(r.floor_id).floor_num
-                td
-                  = ManagementFee.find(r.rental_fee_id).price
-                  | &nbsp;
-                  = FeeUnit.find(ManagementFee.find(r.rental_fee_id).fee_unit_id).name
-                td
-                  = ManagementFee.find(r.management_fee_id).price
-                  | &nbsp;
-                  = FeeUnit.find(ManagementFee.find(r.management_fee_id).fee_unit_id).name
-                td
-                  = r.acreage
-                  | &nbsp;m²
-                td
-                  = link_to "Details", room_path(r), class: "ui primary button"
-
+                  th Room Num
+                  th Floor Num
+                  th Rental Fee
+                  th Management Fee
+                  th Acreage
+                  th Actions
+              tbody
+                - @rooms.each do |r|
+                  tr
+                  td = r.room_num
+                  td = Floor.find(r.floor_id).floor_num
+                  td
+                    = RentalFee.find(r.rental_fee_id).price
+                    | &nbsp;
+                    = FeeUnit.find(RentalFee.find(r.rental_fee_id).fee_unit_id).name
+                  td
+                    = ManagementFee.find(r.management_fee_id).price
+                    | &nbsp;
+                    = FeeUnit.find(ManagementFee.find(r.management_fee_id).fee_unit_id).name
+                  td
+                    = r.acreage
+                    | &nbsp;m²
+                  td
+                    = link_to "Details", room_path(r), class: "ui basic primary fluid button", style: "margin-bottom: 0.5rem"
+                    - if user_signed_in?  
+                      = link_to "Book", new_room_booking_path(r.id), class: "ui primary fluid button", style: "margin-top: 0.5rem"
+                    - else
+                      = link_to "Book", new_user_session_path, class: "ui primary fluid button", style: "margin-top: 0.5rem"
+    .ui.segment
+      h1.ui.header Related Buildings
+      .ui.three.stackable.cards
+        - @related_buildings.each do |building|
+          .card
+            .ui.image
+              .list-images
+                - if building.images.attached?
+                  - building.images.each do |img| 
+                    = link_to building_path(building) do
+                      = image_tag(img)
+                - else 
+                  = image_tag("logo.png")              
+            .content
+              .header = building.name
+              .meta
+                = building.district
+                | &nbsp;
+                = building.city
+              span.left.floated
+                a.ui.label
+                  | Floors:&nbsp;
+                  = building.floor_number
+              span.right.floated 
+                a.ui.label
+                  = building.updated_at.strftime('%d/%m/%Y')

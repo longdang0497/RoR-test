@@ -1,0 +1,44 @@
+= simple_form_for @booking, :url => room_bookings_path, html: {class: 'ui form', multipart: true, id: 'booking-form'} do |f|
+  .ui.error.message
+    ul.list#list_validation
+  .ui.stacked.segment
+    h4.ui.header Booking Information
+    = f.hidden_field :user_id, value: current_user.id
+    .field.field_validation
+      label Name
+      input placeholder="Type your name" readonly="readonly" value="#{current_user.name}"
+    .field.field_validation
+      label Email
+      input placeholder="Type your email" readonly="readonly" value="#{current_user.email}"
+    .field.field_validation
+      label Phone
+      input placeholder="Type your phone" readonly="readonly" value="#{current_user.phone}"
+    .field
+      = f.input :messages, input_html: { cols: 10, rows: 5 }
+    .field
+      = f.input :profession, label: "Profession", autofocus: true, placeholder: "Type your profession"
+    .field
+      = f.input :service_length, label: "Length of service", autofocus: true, placeholder: "Your length of service"
+    .field
+      = f.input :desired_time, label: "Desired time to move in", autofocus: true, placeholder: "Your desired time to move in"
+    = f.hidden_field :room_id, value: @room.id
+    .field.field_validation
+      label Room Number
+      input placeholder="You want to book room number" readonly="readonly" value="#{@room.room_num}"
+    .field.field_validation
+      label Floor Number
+      input placeholder="You want to book room on floor number" readonly="readonly" value="#{Floor.find(@room.floor_id).floor_num}"
+    .field.field_validation
+      label Building
+      input placeholder="You want to book room in building" readonly="readonly" value="#{Building.find(Floor.find(@room.floor_id).building_id).name}"
+    .field.field_validation
+      label Rental Fee
+      input placeholder="Room's rental fee" readonly="readonly" value="#{RentalFee.export_rental_fee(@room.rental_fee_id)}"
+    .field.field_validation
+      label Management Fee
+      input placeholder="Room's management fee" readonly="readonly" value="#{ManagementFee.export_management_fee(@room.rental_fee_id)}"
+  .ui.stacked.segment
+    / = submit_tag "Create", class: "ui fluid primary button"
+    = submit_tag "Preview", :name => "preview_button", class: "ui fluid basic primary button"
+    / = link_to preview_room_booking_path(@booking), method: :post do
+    /   button.fluid.ui.button.red Preview

@@ -1,0 +1,30 @@
+= content_for :title_header do
+  | BookBuilding | Room Booked Successfully
+end
+
+.ui.vertical.stripe.segment
+  .ui.middle.aligned.stackable.grid.container
+    .row
+      .column
+        h1.ui.huge.header Booking Room
+    .row
+      .column
+        .ui.fluid.ordered.steps
+            .completed.step
+              .content
+                .title Filling form
+                .description Filling booking form
+            .completed.step
+              .content
+                .title Confirmation
+                .description Take a preview of what you want to book
+            .completed.step
+              .content
+                .title Completed
+                .description Done!
+    .row
+      .column
+        h1.ui.huge.header 
+          | You have booked Room&nbsp;
+          = Room.find(@booking.room_id).room_num
+          | &nbsp;successfully!

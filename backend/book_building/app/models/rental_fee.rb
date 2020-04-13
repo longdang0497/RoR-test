@@ -5,7 +5,7 @@ class RentalFee < ApplicationRecord
 
   validates :price, :fee_unit_id, :admin_id, presence: true
 
-  scope :export_rental_fee, -> { self.price + " " + self.fee_unit.name}
+  scope :export_rental_fee, ->(value) { RentalFee.find(value).price.to_s + " " + FeeUnit.find(RentalFee.find(value).fee_unit_id).name}
 
   rails_admin do
     list do 

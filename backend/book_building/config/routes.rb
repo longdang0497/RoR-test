@@ -7,5 +7,12 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :buildings
-  resources :rooms
+  resources :rooms do
+    resources :bookings do
+      member do
+        post :preview
+        get :success
+      end
+    end 
+  end
 end
