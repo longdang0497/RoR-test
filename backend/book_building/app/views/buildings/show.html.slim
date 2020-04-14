@@ -8,6 +8,9 @@ end
       - @building.images.each do |img|
         a href="#{rails_blob_path(img, only_path: true)}" style=("height: 180px; width: 100%;")
           = image_tag(img, style: "width: 100%; max-height: 100%; object-fit: cover;")
+    - else
+      a href="#{asset_path('default-image')}" style=("height: 180px; width: 100%;")
+        = image_tag("default-image.jpg", style: "width: 100%; max-height: 100%; object-fit: cover;")
   .ui.segments  
     .ui.segment
       h1.ui.header = @building.name
@@ -89,7 +92,7 @@ end
                     = link_to building_path(building) do
                       = image_tag(img)
                 - else 
-                  = image_tag("logo.png")              
+                  = image_tag("default-image.jpg", style: "width: 100%; max-height: 100%; object-fit: cover;")              
             .content
               .header = building.name
               .meta

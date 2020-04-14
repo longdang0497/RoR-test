@@ -1,8 +1,7 @@
-devise_for :admins, controllers: {
+devise_for :admins, :skip => [:registrations], controllers: {
   sessions: 'admins/sessions',
   passwords: 'admins/passwords',
-  confirmations: 'admins/confirmations',
-  registrations: 'admins/registrations'
+  confirmations: 'admins/confirmations'
 }
 
 devise_scope :admin do
